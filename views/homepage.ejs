@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ホームページデザインサンプルサイト</title>
+<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
+<link href="/stylesheets/reset.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/homepage_style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" language="javascript"></script>
+</head>
+<body>
+	<div id="wrap">
+		<section id="header">
+			<div class="header__rogo"><img src="/images/rogo.png" class="header__image images" alt="" /></div>
+			<p class="header__text"><%= headerTxt %></p>
+		</section><!--header_contents-->
+		<section id="main">
+			<div class="main__left">
+				<p class="main__heading"><%= mainHeadTxt %></p>
+				<div class="main__fix-wrap">
+					<figure class="main__img-wrap sp-img"><img src="/images/<%= spImg %>" class="main__img images" alt="" /></figure>
+					<figure class="main__img-wrap pc-img"><img src="/images/<%= pcImg %>" class="main__img images" alt="" /></figure>
+				</div>
+				<p class="main__under-txt"><%= mainUnderTxt %></p>
+			</div>
+			<div class="main__right">
+				<ul class="main__right-btn--wrap">
+					<li class="main__right-top--txt"><%= mainRightTop %></li>
+					<li class="main__right-top--btn">
+						<span class="main__right-top--link link">テンプレートダウンロード</span>
+					</li>
+					<li class="main__right-btm--txt">※サンプルサイトなので実際にダウンロードできる訳ではありません。</li>
+				</ul>
+				<div class="main__login-wrap">
+					<p class="main__login-toptxt">あなたは未ログインユーザーです。</p>
+					<ul class="main__login-btn--wrap">
+						<li class="main__login-btn--btn">
+							<span class="main__login-in--link link">ログイン</span>
+						</li>
+						<li class="main__login-btn--user">
+							<span class="main__login-user--link link">ユーザー登録</span>
+						</li>
+					</ul>
+				</div>
+				<p class="main__login-caution">※このページはポートフォリオ用に作成したサンプルサイトになります。</p>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

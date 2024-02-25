@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>チラシデザインサンプルサイト</title>
+<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
+<link href="/stylesheets/reset.css" type="text/css" rel="stylesheet">
+<link href="/stylesheets/flyer_style.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" language="javascript"></script>
+<script src="/javascripts/bgchange.js" language="javascript"></script>
+</head>
+<body>
+	<div id="wrap_all">
+		<div id="header_contents">
+			<div class="header__rogo"><img src="/images/rogo.png" class="header__image images" alt="" /></div>
+		</div><!--header_contents-->
+		
+		<div class="gravure_wrap">
+			<img src="/images/<%= image %>" class="gravure_image images" alt="" />
+		</div>
+		
+		<div class="wrap_eachbtn">
+			<div class="info_btn_elem">
+				<div class="button button-black"><%= topText %></div>
+			</div>
+		
+			<div class="info_btn_elem store_info">
+				<div class="button button-black"><%= btmText %></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

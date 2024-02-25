@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" language="javascript"></script>
+    <script src="/javascripts/event.js" language="javascript"></script>
+  </head>
+  <body>
+    <div id="wrap_all">
+<div id="header_contents">
+	<div class="header__rogo">
+	<a href="/" class="header__image_link link"><img src="/images/rogo.png" class="header__image images" alt="" /></a>
+	</div>
+	<p class="header_catch">
+		<span class="main_catch">ポートフォリオ用サンプルサイト</span>
+		<span class="sub_headtext">このサンプルサイトはNode.js（express）を使用して作成しており様々な商品や情報を掲載しているポータルサイトを想定しています。</span>
+	</p>
+</div><!--header_contents-->
+
+<div id="main_contents">
+	<div class="slide-heading">
+		<div class="slide-heading__headtxt">
+			<span class="slide-heading__bigtxt">PICK UP</span>
+			<span class="slide-heading__subtxt">-最新記事-</span>
+		</div>
+	<div class="slide_contents">
+		<a href="javascript:void(0)" class="jnr_left_icon"><i class="fas fa-chevron-left"></i></a>
+		<div class="slide_wrap">
+			<ul class="slide__elem">
+				<% slideContent.forEach(function(val,key){ %>
+				<li class="slide__list slide_ticket" key="<%=key %>">
+					<a href="<%= val.link %>" class="slide__link link" target="_blank"><img src="/images/<%= val.image %>" class="matome__image images images_gray" alt="" /></a>
+					<div class="slide_info_elem">
+						<p class="slideinfo_date"><span class="date_year"><%= new Date(val.date).getFullYear() %></span>年<span class="date_month"><%= new Date(val.date).getMonth()+1 %></span>月<span class="date_day"><%= new Date(val.date).getDate() %></span>日</p>
+						<p class="info_category"><%= val.title %></p>
+						<p class="desp_text"><%= val.text %></p>
+					</div>
+				</li>
+				<% }); %>
+			</ul>
+		</div>
+		<a href="javascript:void(0)" class="jnr_right_icon"><i class="fas fa-chevron-right"></i></a>
+		<div class="jnr_pagination"></div>
+	</div><!--.slide_contents-->
+	</div><!--.slide-heading-->
+	
+<div id="contents_wrap">
+	<div class="eachgenre_backnum">
+		<p class="backnum_elem_heading">
+			<span class="backnum__heading-txt">Past Articles</span>
+			<span class="backnum__sub-txt">-全記事特集-</span>
+		</p>
+		<ul class="backnum_elem">
+			<% mainContent.forEach(function(val,key){ %>
+				<li class="backnum__list gravure" key="<%= key %>">
+					<a href="<%= val.link %>" class="backnum__link link" target="_blank">
+						<div class="backnum__list_imgelem">
+							<img src="/images/<%= val.image %>" class="backnum__image images images_gray" alt="" />
+						</div>
+						<div class="backnum__list_textelem">
+							<div class="backnum_date"><span class="date_year"><%= new Date(val.date).getFullYear() %></span>年<span class="date_month"><%= new Date(val.date).getMonth()+1 %></span>月<span class="date_day"><%= new Date(val.date).getDate() %></span>日</div>
+							<div class="backnum_category"><%= val.title %></div>
+							<div class="backnum_main_catch"><%= val.text %></div>
+							<div class="backnum_button">クリックして記事を見る</div>
+						</div>
+					</a>
+				</li>
+			<% }); %>
+		</ul>
+	</div>
+</div><!--contents_wrap-->
+</div><!--main_contents-->
+
+<div id="footer_contents">
+	<div class="footer_hn_rogo">
+		<a href="https://www.cityheaven.net/aichi/" class="footer_rogo_link link">
+			<img src="/images/rogo.png" class="footer_rogo_image images" alt="" />
+		</a>
+	</div>
+	<div class="footer_wrap_elem">
+		<div class="popularity_area_elem">
+			<p class="footer_area_search">ポートフォリオ用サンプルサイト</p>
+		</div>
+	</div>
+</div><!--footer_contents-->
+
+</div><!--wrap_all-->
+  </body>
+</html>

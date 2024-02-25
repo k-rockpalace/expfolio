@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" language="javascript"></script>
+    <script src="/javascripts/event.js" language="javascript"></script>
+  </head>
+  <body>
+    <div id="input-info">
+        <p class="input-info__text">必要な情報を入力してください</p>
+        <form method="post" action="/input">
+          <div class="input-info__link-wrap">
+            <label for="input__link">リンクURLを入力</label>
+            <input type="text" id="input__link" name="link">
+          </div>
+          <div class="input-info__image-wrap">
+            <label for="input__image">画像名を入力</label>
+            <input type="text" id="input__image" name="image">
+          </div>
+          <div class="input-info__title-wrap">
+            <label for="input__title">商品名を入力</label>
+            <input type="text" id="input__title" name="title">
+          </div>
+          <div class="input-info__text-wrap">
+            <label for="input__text">商品概要を入力</label>
+            <input type="text" id="input__text" name="text">
+          </div>
+          <div class="input-info__date-wrap">
+            <label for="input__date">日付を入力</label>
+            <input type="text" id="input__date" name="date">
+          </div>
+          <input type="submit" value="送信" class="input-info__send-btn">
+        </form>
+        
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ホテル割引チケットサンプルサイト</title>
+<link href="https://img.cityheaven.net/t/heavten/discount_eventplan/css/reset.css" type="text/css" rel="stylesheet">
+<link href="/stylesheets/hotel_style.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/javascripts/hotel_event.js"></script>
+<script src="/javascripts/fire_works.js"></script>
+</head>
+	<body>
+		<div id="container">
+			<div id="header_contents">
+                <div class="header__rogo"><img src="/images/rogo.png" class="header__image images" alt="" /></div>
+			</div><!--header_contents-->
+			<div id="main_contents">
+				<div class="coupon_area">
+					<p class="coupon__heading">ホテル割引イベントキャンペーン</p>
+					<ul class="coupon__elem">
+						<li class="coupon__toptxt"><span class="big_txt">「このサイト見た」</span><span class="small_txt">で</span></li>
+						<li class="cupon__ticket">
+							<span class="coupon__text"><%= course %><br /><%= payoff %></span>
+						</li>
+					</ul>
+					<div class="period_date">
+						<ul class="period__elem">
+							<li class="period__txt">適用期間</li>
+							<li class="period__date_txt">
+								<span class="starting_date" data-start-date="<%= startDate %>"></span>
+								<span class="ending_date" data-end-date="<%= endDate %>"></span>
+							</li>
+						</ul>
+						<div class="count_down_disp"></div>
+					</div>
+					<p class="coupon__alldistxt">※期間内にこのページをお見せ頂ければどなたでも割引を受けられます</p>
+				</div><!--coupon_area-->
+				
+				<div class="information_area">
+					<div class="information__girl">
+						<div class="infogirl__image"><img src="/images/<%= image %>" class="infogirl__img image" alt="" /></div>
+					</div><!--information__girl-->
+					<div class="information__store">
+						<ul class="infostore__elem">
+							<li class="infostore__name"><%= hotelName %></li>
+							<li class="infostore__industry"><%= hotelAddress %></li>
+							<li class="infostore__link_btn">
+								<a href="<%= hotelLink %>" class="infostore__link link">ホテルの詳細を見る</a>
+							</li>
+						</ul>
+					</div>
+				</div><!--information_area-->
+			</div><!--main_contents-->
+		</div><!--container-->
+		<canvas id="canvas"></canvas>
+	</body>
+
+</html>

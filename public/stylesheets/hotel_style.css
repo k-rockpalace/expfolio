@@ -1,0 +1,684 @@
+body{
+	font-size: 16px;
+	text-align: center;
+	font-family:  Arial, "メイリオ", sans-serif;
+	/*overflow: hidden;*/
+}
+
+div,p,span,a,img,ul,li{
+	box-sizing:border-box;
+}
+
+.link{
+	text-decoration: none;
+}
+
+.image{
+	width: 100%;
+}
+
+.header__image{
+	width: 100%;
+    vertical-align: bottom;
+}
+
+#container{
+	position: relative;
+	z-index: 100;
+	overflow: hidden;
+}
+
+#canvas{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#header_contents{
+	width: 100%;
+	padding: 5px;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 21;
+	background-color: rgba(255,255,255,0.9);
+	border-bottom: 2px solid;
+	border-image: linear-gradient(to right,#00dbde 0%,#ff6699 70%);
+	border-image-slice: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header__rogo{
+	width: 100%;
+	max-width: 140px;
+	margin: 0 auto;
+	padding: 5px 0;
+}
+
+/*ヘッダーメニューCSS*/
+.header_menu_elem{
+	display: none;
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 100%;
+}
+
+.head_menu_wrap{
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 50px;
+}
+	
+.head_menu_wrap::after{
+	content: "";
+	background-color: rgba(0,0,0,0.8);
+	display: block;
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	top: -25px;
+	right: -25px;
+	z-index: -1;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 0.7s ease-in;
+}
+
+	
+.scale_move::after{
+	transform: scale(80);
+}
+
+	
+.menu_trigger,
+.menu_trigger span {
+	display: inline-block;
+	transition: all .4s;
+	box-sizing: border-box;
+}
+
+.menu_trigger {
+	position: relative;
+	width: 25px;
+	height: 20px;
+}
+
+.menu_trigger span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #000000;
+}
+	
+.menu_trigger span:nth-of-type(1) {
+	top: 0;
+}
+
+.menu_trigger span:nth-of-type(2) {
+	top: 50%;
+}
+
+.menu_trigger span:nth-of-type(3) {
+	bottom: 0;
+}
+
+.menu_trigger.active span:nth-of-type(1) {
+	-webkit-transform: translateY(10px) rotate(-45deg);
+	transform: translateY(10px) rotate(-45deg);
+	background-color: #ffffff;
+}
+
+.menu_trigger.active span:nth-of-type(2) {
+	opacity: 0;
+	background-color: #ffffff;
+}
+
+.menu_trigger.active span:nth-of-type(3) {
+	-webkit-transform: translateY(-10px) rotate(45deg);
+	transform: translateY(-10px) rotate(45deg);
+	background-color: #ffffff;
+}
+
+.header_list_menu{
+	width: 100%;
+	max-width: 900px;
+	position: fixed;
+	top: 55%;
+	left: 50%;
+	display: none;
+	transition: top 0.5s ease-in;
+	text-align: center;
+	transform: translate(-50%,-50%);
+	padding: 50px 40px;
+	background-color: rgba(255,255,255,0.9);
+}
+
+.move_top{
+	top: 50%;
+}
+	
+.header_menu_list{
+	width: 100%;
+	padding: 0 10px;
+	margin: 0 0 5px;
+}
+		
+.header_menu_link:hover::after{
+	height: 100%;
+}
+
+.header_menu_link::after{
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: #ff9966;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: 0.3s ease-in-out;
+}
+	
+.header_menu_link{
+	font-size: 1.1rem;
+	display: block;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	color: #ffffff;
+	transition: 0.3s ease-in-out;
+	font-weight: bold;
+}
+
+.header_menu_list:first-child .header_menu_link:after{
+	background-color: #ff9966;
+}
+
+.header_menu_list:nth-child(2) .header_menu_link:after{
+	background-color: #00ccff;
+}
+
+.header_menu_list:nth-child(3) .header_menu_link:after{
+	background-color: #ff6699;
+}
+
+.header_menu_list:nth-child(4) .header_menu_link:after{
+	background-color: #00cc66;
+}
+
+.header_menu_list:nth-child(5) .header_menu_link:after{
+	background-color: #000099;
+}
+
+.header_menu_list:nth-child(6) .header_menu_link:after{
+	background-color: #ffcc00;
+}
+/*ヘッダーメニューCSS*/
+
+/*メインコンテンツ*/
+#main_contents{
+	margin: 0 auto;
+	padding: 0 0 40px;
+	width: 100%;
+	max-width: 1200px;
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.coupon_area{
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto 48px;
+	padding: 0 0 10px;
+	position: relative;
+}
+
+.coupon_area::before{
+	content: "";
+	width: 100%;
+	height: 3px;
+	background-color: #443F3F;
+	position: absolute;
+	bottom: 8px;
+	left: 0;
+}
+
+.coupon_area::after{
+	content: "";
+	width: 100%;
+	height: 6px;
+	background-color: #443F3F;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.coupon__heading{
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px 10px;
+	font-size: 1rem;
+	background-color: #443F3F;
+	color: #ffffff;
+}
+
+.big_txt{
+	font-size: 3rem;
+	font-weight: bold;
+	color: #1FA6B7;
+}
+
+.small_txt{
+	font-size: 3rem;
+	font-weight: bold;
+	color: #1FA6B7;
+}
+
+.coupon__elem{
+	width: 70%;
+	margin: 80px auto;
+}
+
+.cupon__ticket{
+	background-image: url(https://img.cityheaven.net/t/heavten/discount_eventplan/image/ticket_back.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	width: 100%;
+	margin: 0 auto;
+	height: 320px;
+	position: relative;
+}
+
+.coupon__text{
+	font-size: 4rem;
+    font-weight: bold;
+    color: #1FA6B7;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    left: 6%;
+    transform: translateY(-50%);
+}
+.period_date{
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.period__elem{
+	width: 45%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid #707070;
+}
+
+.count_down_disp{
+	/*width: 50%;*/
+	color: #656565;
+	text-align: left;
+	padding: 0 0 0 10px;
+	font-size: 1rem;
+}
+
+.period__txt{
+	width: 15%;
+    background-color: #656565;
+    font-size: 0.8rem;
+    padding: 10px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.period__date_txt{
+	width: 85%;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #707070;
+}
+
+.remaining_time{
+	writing-mode: vertical-rl;
+}
+
+.days_memory{
+	background-color: #656565;
+    display: inline-block;
+    padding: 10px;
+    font-size: 2.3rem;
+	margin: 0 0 0 2px;
+	color: #ffffff;
+}
+
+.hour_memory{
+	background-color: #656565;
+    display: inline-block;
+    padding: 10px;
+    font-size: 2.3rem;
+	margin: 0 0 0 3px;
+	color: #ffffff;
+}
+
+.minites_memory{
+	background-color: #656565;
+    display: inline-block;
+    padding: 10px;
+    font-size: 2.3rem;
+	margin: 0 0 0 3px;
+	color: #ffffff;
+}
+
+.second_memory{
+	background-color: #656565;
+    display: inline-block;
+    padding: 10px;
+    font-size: 2.3rem;
+	margin: 0 0 0 3px;
+	color: #ffffff;
+}
+
+.coupon__alldistxt{
+	width: 100%;
+	margin: 16px 0 48px;
+}
+
+
+.information_area{
+	width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+	color: #656565;
+	padding: 0 0 30px;
+}
+
+.information__girl{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.infogirl__elem{
+	width: 70%;
+	text-align: left;
+	padding: 0 0 0 5px;
+}
+
+.infogirl__image{
+	margin: 0 0 5px;
+}
+
+.infogirl_name{
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.infogirl__age{
+	font-size: 1.1rem;
+	margin: 6px 0;
+}
+
+.infogirl__size{
+	font-size: 1rem;
+}
+
+.infogirl__today_link{
+	width: 100%;
+	margin: 10px 0 0;
+}
+
+.infogirl__introlink{
+	width: 100%;
+    display: block;
+    background-color: #FC5D83;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 5px;
+	box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.information__store{
+	width: 100%;
+	text-align: center;
+	padding: 0;
+}
+
+.infostore__name{
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 6px 0;
+}
+
+.infostore__industry{
+	font-size: 1rem;
+}
+
+.infostore__elem{
+	width: 100%;
+}
+
+.infostore__link_btn{
+	width: 80%;
+	margin: 20px auto 10px;
+}
+
+.infostore__link{
+	width: 100%;
+	background-color: rgba(204,180,122,0.7);
+	color: #ffffff;
+	display: block;
+	padding: 15px 0;
+	text-align: center;
+	border: 1px solid #999999;
+}
+
+.infostore__girllink{
+	width: 100%;
+	background-color: #FC5D83;
+	color: #ffffff;
+	display: block;
+	padding: 15px 0;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.2);
+}
+/*メインコンテンツ*/
+
+
+@media screen and (max-width: 700px){
+	.coupon__heading{
+		font-size: 0.85rem;
+		padding: 15px 10px;
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	#main_contents{
+		box-shadow: none;
+	}
+	
+	.coupon__elem{
+		width: 90%;
+		margin: 32px auto;
+	}
+	
+	.big_txt{
+		font-size: 1.8rem;
+	}
+	
+	.small_txt{
+		font-size: 1.5rem;
+	}
+	
+	.coupon__toptxt{
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	
+	.cupon__ticket{
+		background-size: contain;
+		height: 155px;
+	}
+	
+	.coupon__note{
+		display: block;
+	}
+	
+	.coupon__text{
+		font-size: 2.2rem;
+	}
+	
+	.coupon__note_txt{
+		font-size: 1rem;
+		padding: 2px 0;
+	}
+	
+	.period_date{
+		display: block;
+		width: 80%;
+	}
+	
+	.period__txt{
+		padding: 7px;
+	}
+	
+	.period__date_txt{
+		font-size: 1.3rem;
+	}
+	
+	.period__elem{
+		width: 100%;
+		margin: 0 0 10px;
+	}
+	
+	.coupon_area{
+		margin: 0 auto 26px;
+	}
+	
+	.count_down_disp{
+		width: 100%;
+		padding: 0;
+		font-size: 0.7rem;
+		text-align: center;
+	}
+	
+	.coupon__alldistxt{
+		margin: 10px auto 24px;
+		font-size: 0.75rem;
+		line-height: 1.2;
+		width: 80%;
+	}
+	
+	.coupon_area::before,.coupon_area::after{
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	.information_area{
+		display: block;
+		width: 80%;
+		padding: 0 0 20px;
+	}
+	
+	.information__girl{
+		width: 100%;
+		position: relative;
+	}
+	
+	.infogirl__suffix::before{
+		display: none;
+	}
+	
+	.infogirl__suffix{
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		top: -20px;
+		left: -25px;
+	}
+	
+	.infogirl__suffix span{
+		font-size: 0.8rem;
+	}
+	
+	.infogirl__elem{
+		width: 100%;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.infogirl__image{
+		width: 100%;
+		margin: 0 auto 5px;
+	}
+	
+	.infogirl__introlink{
+		border-radius: 20px;
+	}
+	
+	.information__store{
+		width: 100%;
+		padding: 20px 0 0;
+		text-align: center;
+	}
+	
+	.infostore__suffix{
+		font-size: 1.3rem;
+	}
+	
+	.infostore__name{
+		font-size: 1.5rem;
+	}
+	
+	.infostore__industry{
+		font-size: 0.8rem;
+	}
+	
+	.infostore__link_btn{
+		width: 100%;
+		margin: 15px auto 10px;
+	}
+	
+	.infostore__allgirl_btn{
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.infostore__girllink{
+		border-radius: 20px;
+	}
+	
+	.days_memory{
+		font-size: 1.1rem;
+	}
+	
+	.hour_memory{
+		font-size: 1.5rem;
+	}
+
+	.minites_memory{
+		font-size: 1.5rem;
+	}
+
+	.second_memory{
+		font-size: 1.5rem;
+	}
+}
+
+
+
