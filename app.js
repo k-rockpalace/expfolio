@@ -13,6 +13,8 @@ var homepageRouter = require('./routes/homepage');
 
 var app = express();
 
+const port = process.env.PORT || 5000;
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,6 +46,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(port, ()=>{
+  console.log(`Listening on localhost port ${port}`);
 });
 
 module.exports = app;
